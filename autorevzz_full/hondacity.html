@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Autorevzz | Used Car Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+    }
+
+    .car-container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      background-color: #fff;
+    }
+
+    .slider-wrapper {
+      flex: 1;
+      padding-right: 20px;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .main-image {
+      width: 100%;
+      max-height: 350px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .image-buttons {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .image-buttons button {
+      background-color: rgba(255, 95, 0, 0.9);
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .image-buttons button:hover {
+      background-color: #e65b00;
+    }
+
+    .car-info {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .car-info h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .car-info p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .car-highlights {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .highlight-box {
+      padding: 10px 15px;
+      background-color: #ffb700;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .highlight-box:hover {
+      background-color: #ffa100;
+    }
+
+    .price-section {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f0f0f0;
+      border-radius: 10px;
+    }
+
+    .price-section h2 {
+      margin: 0 0 10px 0;
+      color: #333;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ff5f00;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+
+    .car-overview, .inspection-report {
+      background-color: #fff;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .car-overview h2, .inspection-report h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .overview-item {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .overview-item strong {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .inspection-icons {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .inspection-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .inspection-item img {
+      height: 40px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="car-container">
+    <div class="slider-wrapper">
+      <div class="image-buttons">
+        <button onclick="changeImage('hondacityfront.png')">Front Side</button>
+        <button onclick="changeImage('hondacityinterior.png')">Interior</button>
+        <button onclick="changeImage('hondacityback.png')">Back Side</button>
+        <button onclick="changeImage('hondacityengine.png')">Engine Bay</button>
+        <button onclick="changeImage('hondacityboot.png')">Boot</button>
+        <button onclick="changeImage('hondacitytyres.png')">Tyres</button>
+      </div>
+      <img id="mainImage" class="main-image" src="hondacityfront.png" alt="Front Left">
+    </div>
+
+    <div class="car-info">
+      <h1>HONDA CITY ZX CVT PETROL</h1>
+      <p><strong>Location:</strong> Delhi</p>
+      <p><strong>Kilometers:</strong> 33,517 km</p>
+      <p><strong>Owner:</strong> 1st Owner</p>
+      <p><strong>Transmission:</strong> AUTOMATIC</p>
+      <p><strong>Fuel:</strong> Petrol</p>
+      <div class="car-highlights">
+        <div class="highlight-box">Autorevzz Assured</div>
+        <div class="highlight-box">DL-2C</div>
+        <div class="highlight-box" style="background-color: #007bff;" onclick="openOwnershipEstimator()">Ownership Cost Estimator</div>
+      </div>
+      <div class="price-section">
+        <h2>₹9.34 lakh</h2>
+        <p>EMI starts at ₹21,819/mo</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfMEGMZuYKztXBiYlWiE5LB01krSGQPYy9UBCbhywfXkXqV8Q/viewform?usp=dialog" class="button">BOOK NOW</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="car-overview">
+    <h2>Car Overview</h2>
+    <div class="overview-grid">
+      <div class="overview-item"><strong>Reg. Year</strong> FEB 2023</div>
+      <div class="overview-item"><strong>Fuel</strong> Petrol</div>
+      <div class="overview-item"><strong>KM Driven</strong> 63,517 km</div>
+      <div class="overview-item"><strong>Transmission</strong> Manual</div>
+      <div class="overview-item"><strong>Engine Capacity</strong> 1500cc</div>
+      <div class="overview-item"><strong>Ownership</strong> 1st</div>
+      <div class="overview-item"><strong>Make Year</strong> FEB 2023</div>
+      <div class="overview-item"><strong>Spare Key</strong> Yes</div>
+      <div class="overview-item"><strong>Reg. Number</strong> DLXXXXX</div>
+      <div class="overview-item"><strong>Insurance</strong> valid till 2025 dec</div>
+      <div class="overview-item"><strong>Insurance Type</strong> Plans from ₹4,796/y</div>
+    </div>
+  </div>
+
+  <div class="inspection-report">
+    <h2>Car Inspection Report</h2>
+    <div class="inspection-icons">
+      <div class="inspection-item">
+        <img src="https://img.icons8.com/ios-filled/50/car--v1.png" alt="Body">
+        <span>Not Accidental</span>
+      </div>
+      <div class="inspection-item">
+        <img src="https://img.icons8.com/ios-filled/50/engine.png" alt="Engine">
+        <span>Engine Excellent</span>
+      </div>
+      <div class="inspection-item">
+        <img src="https://img.icons8.com/ios-filled/50/tire.png" alt="Tires">
+        <span>Tyres Good</span>
+      </div>
+      <div class="inspection-item">
+        <img src="https://img.icons8.com/ios-filled/50/checked--v1.png" alt="Verified">
+        <span>Verified</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function changeImage(imageSrc) {
+      document.getElementById("mainImage").src = imageSrc;
+    }
+
+    function openOwnershipEstimator() {
+      window.location.href = "calculator.html";
+    }
+  </script>
+
+</body>
+</html>
+
